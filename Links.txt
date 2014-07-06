@@ -1,0 +1,11 @@
+http://visualstudiogallery.msdn.microsoft.com/7e947621-ef93-4de7-93d3-d796c43ba34f
+
+http://stackoverflow.com/questions/13404833/knockout-foreach-binding-displays-only-the-first-virtual-element-data
+
+//JSON and XML Serialization in ASP.NET Web API 
+http://www.asp.net/web-api/overview/formats-and-model-binding/json-and-xml-serialization
+
+//JQuery Icon pack
+https://github.com/commadelimited/jQuery-Mobile-Icon-Pack
+http://andymatthews.net/code/jquery-mobile-icon-pack/
+

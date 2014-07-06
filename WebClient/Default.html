@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-2.1.1.js"></script>
+    <script src="Scripts/knockout-v3.1.js"></script>
+    <style type="text/css">
+        body {
+            font-family:'Times New Roman';
+            font-size:10pt;
+        }
+        #container {
+            width:100%;
+        }
+        #leftView {
+            width:50%;
+            text-align:left;
+            float:left;
+        }
+        #rightView {
+            width:40%;
+            text-align:left;
+            float:right;
+        }
+            table td{
+                padding:10px 10px 10px 10px;
+            }
+            table th {
+                padding: 5px 5px 5px 5px;
+                border-top:solid;
+                border-top-width:1px;
+                border-bottom:solid;
+                border-bottom-width:1px;
+            }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        var apiUrl = "http://localhost/Apis/api/Customers";
+
+        function CustomerViewModel()
+        {
+            var self = this;
+            self.customers = ko.observableArray([]);
+            self.errorMessage = ko.observable();
+            self.addCustomer = function () {
+                alert("addCustomer");
+                $.post(apiUrl, $("#addCustomer").serialize(), function (value) {
+                    self.customers.push(value)
+                }, "application/json")
+            }
+
+            $.getJSON(apiUrl, function (data) {
+                self.customers(data);
+            })
+        }
+
+        $(function () {
+            ko.applyBindings(new CustomerViewModel());
+        });
+
+        
+    </script>
+
+    <div id="container">
+
+        <div id="leftView">
+            <table>
+                <thead>
+                    <tr>
+                        <th>CustomerID</th>
+                        <th>CompanyName</th>
+                        <th>ContactName</th>
+                        <th>ContactTitle</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Region</th>
+                        <th>PostalCode</th>
+                        <th>Country</th>
+                        <th>Phone</th>
+                        <th>Fax</th>
+                    </tr>
+                </thead>
+            </table>
+            <table data-bind="foreach:customers">
+
+                <tr>
+                    <td><span data-bind="text:CustomerID"></span></td>
+                    <td><span data-bind="text:CompanyName"></span></td>
+                    <td><span data-bind="text:ContactName"></span></td>
+                    <td><span data-bind="text:ContactTitle"></span></td>
+                    <td><span data-bind="text:Address"></span></td>
+                    <td><span data-bind="text:City"></span></td>
+                    <td><span data-bind="text:Region"></span></td>
+                    <td><span data-bind="text:PostalCode"></span></td>
+                    <td><span data-bind="text:Country"></span></td>
+                    <td><span data-bind="text:Phone"></span></td>
+                    <td><span data-bind="text:Fax"></span></td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div id="rightView">
+            <form id="addCustomer" data-bind="submit:addCustomer">
+                <table>
+                    <tr>
+                        <td>
+                            CustomerID
+                        </td>
+                        <td>
+                            <input type="text" name="CustomerID">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>CompanyName</td>
+                        <td><input type="text" name="CompanyName"></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>ContactName</td>
+                        <td><input type="text" name="ContactName"></td>
+                    </tr>
+                    <tr>
+                        <td>ContactTitle</td>
+                        <td><input type="text" name="ContactTitle"></td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td><input type="text" name="Address"></td>
+                    </tr>
+
+                    <tr>
+                        <td>City</td>
+                        <td><input type="text" name="City"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Region</td>
+                        <td><input type="text" name="Region"></td>
+                    </tr>
+
+                    <tr>
+                        <td>PostalCode</td>
+                        <td><input type="text" name="PostalCode"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Country</td>
+                        <td><input type="text" name="Country"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Phone</td>
+                        <td><input type="text" name="Phone"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Fax</td>
+                        <td><input type="text" name="Fax"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" id="btnCreate" value="Create new" />
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
