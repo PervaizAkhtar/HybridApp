@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BFEEA7B7-D9D7-4B25-AB56-B951F98ABDB8}"
 	ProjectSection(SolutionItems) = preProject
 		Links.txt = Links.txt
+		Publish Window Azure.txt = Publish Window Azure.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient", "WebClient\WebClient.csproj", "{9057A19E-0F90-40F1-850E-4AF042173C13}"

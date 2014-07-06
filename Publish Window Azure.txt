@@ -1,0 +1,19 @@
+web site apiss
+
+DataBase  Settings
+
+
+Name : ApiDb
+Server Login Name : ApidDbAdmin
+Password : Password2014
+Region : West Europe 
+
+
+
+
+sql server connect 
+
+tcp:tedxsr2gtq.database.windows.net,1433
+
+ApidDbAdmin@tedxsr2gtq
+Password2014
